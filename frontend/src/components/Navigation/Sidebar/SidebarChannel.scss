@@ -1,0 +1,26 @@
+$color_1: white;
+$color_2: gray;
+$background-color_1: #40464b;
+$background-color_2: #2f3135;
+
+.sidebarChannel {
+    &:hover {
+        > h4 {
+            color: $color_1;
+            background-color: $background-color_1;
+        }
+    }
+    > h4 {
+        display: flex;
+        padding-left: 15px;
+        align-items: center;
+        background-color: $background-color_2;
+        color: $color_2;
+        cursor: pointer;
+        margin: 0;
+    }
+}
+.sidebarChannel__hash {
+    font-size: 20px;
+    padding: 8px;
+}

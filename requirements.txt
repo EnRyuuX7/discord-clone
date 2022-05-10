@@ -1,0 +1,11 @@
+react 
+node.js -- backend express
+mongo
+User - user connection socket
+node miller
+
+Process:
+$ npx clear-npx-cache
+$ npx create-react-app frontend
+
+

@@ -1,0 +1,100 @@
+.form__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+.login__wrapper,
+.signup__wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2em;
+    background-color: #111;
+    color: #fff;
+}
+
+.login__form,
+.signup__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2em;
+
+    .login__formGroup,
+    .signup__formGroup {
+        display: flex;
+        column-gap: 2em;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+            width: 80px;
+        }
+        & > input {
+            background: #202225;
+            color: #dcddde;
+            border: none;
+            padding: 0.7em;
+            border-radius: 10px;
+            width: 200px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        & > input:focus {
+            outline: none;
+            width: 300px;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+.btn {
+    // variables
+    $btnColor: crimson;
+    $btnWidth: 300px;
+
+    background: transparent;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    width: $btnWidth;
+    padding: 0;
+    margin-top: 2em;
+    font-size: 20px;
+    font-weight: 100;
+    text-shadow: 0 0 8px darken($btnColor, 80%);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 2.6;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    border: none !important;
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        z-index: -1;
+        width: ($btnWidth)+12px;
+        height: 100%;
+        background: $btnColor;
+        top: 0;
+        left: calc(($btnWidth) / 2);
+        margin-left: -(calc(($btnWidth) / 2) + 6px);
+        transform: skewX(-34deg);
+        z-index: -1;
+    }
+    &:hover {
+        &:after {
+            background: darken($btnColor, 12%);
+            transform: skewX(0);
+        }
+    }
+}
