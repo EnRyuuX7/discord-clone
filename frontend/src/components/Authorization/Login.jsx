@@ -27,9 +27,9 @@ function Login() {
                 axios.post("http://localhost:3001/api/auth/signin", user)
                     .then(res => {
                         alert(res.data.message)
-                        ctx.setUser(res.data.username)
+                        ctx.setUserName(res.data.username)
+                        ctx.setUserId(res.data.id)
                         ctx.setLoggedIn(true)
-                        // console.log(ctx)
                     })
             }
             return (

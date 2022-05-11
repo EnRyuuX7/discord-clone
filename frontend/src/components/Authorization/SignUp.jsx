@@ -17,8 +17,8 @@ function SignUp() {
     }
     //register function 
     const Register = () => {
-        const { name, email, password } = user
-        if (name && email && password) {
+        const { username, email, password } = user
+        if (username && email && password) {
             axios.post("http://localhost:3001/api/auth/signup", user)
                 .then(res => console.log(res))
         }
@@ -40,7 +40,7 @@ function SignUp() {
             <form className="signup__form" autoComplete="off">
                 <div className="signup__formGroup">
                     <label>Username</label>
-                    <input autofocus className="form__input" type="text" name="username" value={user.name} onChange={handleChange} placeholder="Username" />
+                    <input autoFocus className="form__input" type="text" name="username" value={user.name} onChange={handleChange} placeholder="Username" />
                 </div>
                 <div className="signup__formGroup">
                     <label>Email</label>

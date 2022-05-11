@@ -8,18 +8,23 @@ import AuthContext from "./Context/AuthContext";
 
 function App() {
     const [user, setLoginUser] = useState({});
+    const [id, setId] = useState({});
     const [auth, setAuth] = useState(false);
 
     return (
         <AuthContext.Provider
             value={{
                 username: user,
+                uid: id,
                 isLoggedIn: auth,
                 setLoggedIn: (value) => {
                     setAuth(value);
                 },
-                setUser: (value) => {
+                setUserName: (value) => {
                     setLoginUser(value);
+                },
+                setUserId: (value) => {
+                    setId(value);
                 },
             }}
         >

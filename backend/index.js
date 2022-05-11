@@ -25,9 +25,6 @@ const dbConfig = require("./app/config/db.config");
 db.mongoose
     .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
         useNewUrlParser: true,
-        // useCreateIndex: true,
-        // useUnifiedTopology: true,
-        // useFindAndModify: false, //for client i.e mongo compass
     })
     .then(() => {
         console.log("Succesfully connect to MongoDB.");

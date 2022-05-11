@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Sidebar.modules.scss'
 import SidebarChannel from './SidebarChannel';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -10,8 +10,11 @@ import { Avatar } from "@material-ui/core";
 import MicIcon from "@material-ui/icons/Mic";
 import HeadsetIcon from "@material-ui/icons/Headset";
 import SettingsIcon from "@material-ui/icons/Settings";
+import AuthContext from "../../../Context/AuthContext";
 
 function Sidebar() {
+    const ctx = useContext(AuthContext);
+
     return (
         <div className="sidebar">
             <div className="sidebar__top">
@@ -50,8 +53,8 @@ function Sidebar() {
             <div className="sidebar__profile">
                 <Avatar />
                 <div className="sidebar__profileInfo">
-                    <h3>EnRyuu</h3>
-                    <p>#6015</p>
+                    <h3>{ctx.username}</h3>
+                    <p>#{ctx.uid}</p>
                 </div>
 
                 <div className="sidebar__profileIcons">

@@ -8,18 +8,6 @@
     padding-bottom: 20px;
 }
 
-.chat__messages {
-    flex: 1;
-    overflow: scroll;
-}
-.chat__messages::-webkit-scrollbar {
-    display: none;
-}
-.chat__messages {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
 .chat__input {
     display: flex;
     background: #40444b;

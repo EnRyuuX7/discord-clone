@@ -8,9 +8,12 @@ React.createContext({
 });
 
 const AuthContext = React.createContext({
+    username: "",
+    uid: "",
     isLoggedIn: false,
     setLoggedIn: () => {},
-    setLoginUser: () => {},
+    setUserName: () => {},
+    setUserId: () => {},
 });
 
 export default AuthContext;

@@ -5,9 +5,14 @@ const Role = db.role;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
+function randomNumberGen() {
+    return Number(Math.floor(1000 + Math.random() * 9000).toString());
+}
+
 exports.signup = (req, res) => {
     const user = new User({
-        username: req.body.name,
+        id: randomNumberGen(),
+        username: req.body.username,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8),
     });
@@ -80,7 +85,7 @@ exports.signin = (req, res) => {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
             res.status(200).send({
-                id: user._id,
+                id: user.id,
                 username: user.username,
                 email: user.email,
                 roles: authorities,
