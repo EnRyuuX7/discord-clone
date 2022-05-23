@@ -1,10 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import "./components/Chat/Chat.scss";
 import Container from "./components/Container";
 import Login from "./components/Authorization/Login";
-import SignUp from "./components/Authorization/SignUp";
 import AuthContext from "./Context/AuthContext";
+import { Outlet } from "react-router-dom";
 
 function App() {
     const [user, setLoginUser] = useState({});
@@ -30,6 +29,7 @@ function App() {
         >
             {auth && <Container />}
             {!auth && <Login />}
+            <Outlet />
         </AuthContext.Provider>
     );
 }

@@ -91,6 +91,7 @@ exports.signin = (req, res) => {
                 roles: authorities,
                 accessToken: token,
                 message: "Login successfull!",
+                loggedIn: true,
             });
         });
 };

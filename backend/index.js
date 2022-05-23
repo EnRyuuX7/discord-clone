@@ -10,13 +10,16 @@ app.use(express.urlencoded({ extended: true }));
 
 const http = require("http");
 const server = http.createServer(app);
+
 const { Server } = require("socket.io");
+const chat = require("./app/models/chat");
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "http://localhost:3002",
         methods: ["GET", "POST"],
     },
 });
+chat(io);
 
 const db = require("./app/models");
 const Role = require("./app/models/role.model");
@@ -42,12 +45,6 @@ require("./app/routes/user.routes")(app);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
-});
-
-io.on("connection", (socket) => {
-    socket.on("chat message", (msg) => {
-        io.emit("chat message", msg);
-    });
 });
 
 function initial() {

@@ -1,8 +1,14 @@
-.chat__messages {
+.chat__messagesWrapper {
     flex: 1;
-    overflow: scroll;
+    overflow: hidden visible;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.chat__messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     &::-webkit-scrollbar {
         display: none;
@@ -31,11 +37,12 @@
 
             .chat__messageItemHeader {
                 font-weight: bold;
-                color: rgb(141, 17, 17);
+                color: rgb(0, 255, 200);
 
                 span {
-                    font-size: smaller;
-                    color: rgb(124, 124, 124);
+                    font-size: 0.7rem;
+                    color: rgb(107, 107, 107);
+                    margin-left: 1em;
                 }
             }
         }

@@ -6,7 +6,7 @@ function SidebarChannel({ id, channelName }) {
     return (
         <div className="sidebarChannel">
             <h4>
-                <span className="sidebarChannel__hash"># generals</span>
+                <span className="sidebarChannel__hash">#test-channel</span>
                 {channelName}
             </h4>
         </div>

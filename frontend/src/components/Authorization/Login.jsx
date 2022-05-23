@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LoginSignUp.modules.scss";
 import axios from 'axios';
 import AuthContext from "../../Context/AuthContext";
+import { Link } from "react-router-dom";
 
 function Login() {
 
@@ -14,7 +15,9 @@ function Login() {
         setUser({
             ...user,//spread operator 
             [name]: value
+
         })
+
     }
 
     function validateForm() {
@@ -23,20 +26,21 @@ function Login() {
 
     return <AuthContext.Consumer>
         {(ctx) => {
-            const login = () => {
+            const login = (event) => {
+                event.preventDefault()
                 axios.post("http://localhost:3001/api/auth/signin", user)
                     .then(res => {
                         alert(res.data.message)
                         ctx.setUserName(res.data.username)
                         ctx.setUserId(res.data.id)
-                        ctx.setLoggedIn(true)
+                        ctx.setLoggedIn(res.data.loggedIn)
                     })
             }
             return (
                 <div className="login__wrapper">
                     <div className="form__header">
                         <div className="form__title"><h1>Login</h1></div>
-                        <div className="form__login">Don't have an account? <a href="#">Sign Up</a> </div>
+                        <div className="form__login">Don't have an account? <Link to="/signup">Sign up</Link></div>
                     </div>
                     <form className="login__form" autoComplete="off">
                         <div className="login__formGroup">
@@ -54,7 +58,7 @@ function Login() {
                 </div >
             )
         }}
-    </AuthContext.Consumer>
+    </AuthContext.Consumer >
 }
 
 export default Login;

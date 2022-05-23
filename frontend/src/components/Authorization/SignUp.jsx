@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import "./LoginSignUp.modules.scss";
+import { Link } from "react-router-dom";
 
 function SignUp() {
     const [user, setUser] = useState({
@@ -35,7 +36,7 @@ function SignUp() {
         <div className="signup__wrapper">
             <div className="form__header">
                 <div className="form__title"><h1>Sign Up</h1></div>
-                <div className="form__login">Already have an account? <a href="#">Login</a> </div>
+                <div className="form__login">Already have an account?  <Link to="/">Login</Link> </div>
             </div>
             <form className="signup__form" autoComplete="off">
                 <div className="signup__formGroup">
